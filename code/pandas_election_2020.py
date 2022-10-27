@@ -9,9 +9,9 @@ if __name__ == "__main__":
     (
         pd.read_csv(IN_PATH)
         .rename(columns={"state_po": "state_code", "candidatevotes": "votes"})
-        .dropna(subset=["candidatevotes"])
+        .dropna(subset=["votes"])
         .assign(votes= lambda df: df["votes"].astype("int"))
-        .loc[lambda df: df["year" == 2020]]
+        .loc[lambda df_: df_["year"] == 2020]
         .groupby(["year", "state_code", "candidate"])["votes"]
         .sum()
         .reset_index()

@@ -60,7 +60,7 @@ def write_rows(rows):
     with open(OUTPUT_PATH, "w+") as out_file:
         csv_writer = csv.writer(out_file)
         csv_writer.writerow(["year", "state_code", "candidate", "votes"])
-        csv_writer.writerow(rows)
+        csv_writer.writerows(rows)
 
 if __name__ == "__main__":
 
